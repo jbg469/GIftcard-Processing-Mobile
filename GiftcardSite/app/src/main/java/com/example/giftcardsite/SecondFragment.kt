@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.giftcardsite.api.model.RegisterInfo
 import com.example.giftcardsite.api.model.User
 import com.example.giftcardsite.api.service.UserInterface
-import okhttps3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -68,7 +68,7 @@ class SecondFragment : Fragment() {
                         Log.d("Register Success", "Token:" + loggedInUser?.token.toString())
                         var intent = Intent(Intent.ACTION_VIEW)
                         //intent.type = "text/giftcards_browse"
-                        //intent.data = Uri.parse("httpss://nyuappsec.com/api/index")
+                        //intent.data = Uri.parse("https://nyuappsec.com/api/index")
                         intent.putExtra("User", loggedInUser);
                         startActivity(intent)
                     }
