@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.giftcardsite.api.model.RegisterInfo
 import com.example.giftcardsite.api.model.User
 import com.example.giftcardsite.api.service.UserInterface
-import okhttp3.MediaType.Companion.toMediaType
+import okhttps3.MediaType.Companion.toMediaType
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,7 +45,7 @@ class SecondFragment : Fragment() {
             var password : String = view.findViewById<EditText>(R.id.registerPassword).text.toString()
             var password2 : String = view.findViewById<EditText>(R.id.registerConfirmPassword).text.toString()
 
-            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("http://nyuappsec.com").addConverterFactory(GsonConverterFactory.create())
+            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://nyuappsec.com").addConverterFactory(GsonConverterFactory.create())
             var retrofit: Retrofit = builder.build()
             var client: UserInterface = retrofit.create(UserInterface::class.java)
             var loggedInUser: User? = null;
@@ -68,7 +68,7 @@ class SecondFragment : Fragment() {
                         Log.d("Register Success", "Token:" + loggedInUser?.token.toString())
                         var intent = Intent(Intent.ACTION_VIEW)
                         //intent.type = "text/giftcards_browse"
-                        //intent.data = Uri.parse("https://nyuappsec.com/api/index")
+                        //intent.data = Uri.parse("httpss://nyuappsec.com/api/index")
                         intent.putExtra("User", loggedInUser);
                         startActivity(intent)
                     }

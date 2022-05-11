@@ -4,8 +4,8 @@ import com.example.giftcardsite.api.model.LoginInfo
 import com.example.giftcardsite.api.model.RegisterInfo
 import com.example.giftcardsite.api.model.User
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.https.Body
+import retrofit2.https.POST
 
 public interface UserInterface {
 

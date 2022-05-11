@@ -3,7 +3,7 @@ package com.example.giftcardsite.api.service
 import com.example.giftcardsite.api.model.BuyCardInfo
 import com.example.giftcardsite.api.model.Card
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.https.*
 
 public interface CardInterface {
     @PUT("/api/use/{card_number}")
