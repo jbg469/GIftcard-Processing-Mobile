@@ -64,11 +64,9 @@ class SecondFragment : Fragment() {
                         Toast.makeText(activity, "Register Failed", Toast.LENGTH_LONG).show()
                     } else {
                         loggedInUser = response.body()
-                        Log.d("Register Success", "Register success. Boo.")
-                        Log.d("Register Success", "Token:" + loggedInUser?.token.toString())
-                        var intent = Intent(Intent.ACTION_VIEW)
-                        //intent.type = "text/giftcards_browse"
-                        //intent.data = Uri.parse("https://nyuappsec.com/api/index")
+                        Log.d("Login Success", "Login success.")
+                        Log.d("Login Success", "Token:" + loggedInUser?.token.toString())
+                        var intent = Intent(activity, ProductScrollingActivity::class.java)
                         intent.putExtra("User", loggedInUser);
                         startActivity(intent)
                     }
