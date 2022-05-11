@@ -35,17 +35,14 @@ There is no reason to call the API after a register login so we can simply comme
 to execute ProductScrollingActivity after successfully logging in. With Implicit intent, other components that satisfies the intent
 could display data in unexpected ways. After the change we now have an explicit intent
 
-<img width="1239" alt="Screen Shot 2022-05-10 at 11 51 33 PM" src="https://user-images.githubusercontent.com/72175659/167765747-28654d5a-db79-4582-9064-2676e8ba39ab.png">
 
+<img width="1471" alt="Screen Shot 2022-05-11 at 2 13 30 AM" src="https://user-images.githubusercontent.com/72175659/167780994-4dcbe6fb-94b4-43c6-878b-a7b9042d8386.png">
 
 
 ## 1C
 
-<img width="1249" alt="Screen Shot 2022-05-10 at 11 49 55 PM" src="https://user-images.githubusercontent.com/72175659/167766175-966f00ed-1fb3-41e4-9cfa-12ceab55550f.png">
 
-<img width="1367" alt="Screen Shot 2022-05-10 at 11 49 24 PM" src="https://user-images.githubusercontent.com/72175659/167766170-8033a03a-bee0-401d-8376-2cc971cc2dac.png">
-
-We comment out the lines above in the header to prevent fine access to the application. Next we comment out all <intent-filter> fields in the xml as such.
+We comment out all <intent-filter> fields in the xml as such with <!-- -->. The app works as intended 
  
   ```
  <!--<intent-filter>
@@ -58,15 +55,29 @@ We comment out the lines above in the header to prevent fine access to the appli
                 <data android:host="nyuappsec.com"/>
             </intent-filter>-->
   ```
+ <img width="1474" alt="Screen Shot 2022-05-11 at 2 44 10 AM" src="https://user-images.githubusercontent.com/72175659/167785530-0d66d610-1f3d-4e9d-90a4-a9b3a72fa526.png">
+
+ 
 # 2 Stoppin' the Eavesdroppin'
  
-## SecondFragment.kt
-## ThirdFragment.kt
-## CardScrollingActivity.kt
-## ProductScrollingActivity.kt
-## UseCard.kt
-## GetCard.kt
-## CardRecyclerViewAdapter.kt
-## RecyclerViewAdapter.kt
+We do a REPLACE ALL on http://nyuappsec and replace it with https://nyuappsec in the following files
+ 
+```
+SecondFragment.kt
+ThirdFragment.kt
+CardScrollingActivity.kt
+ProductScrollingActivity.kt
+UseCard.kt
+GetCard.kt
+CardRecyclerViewAdapter.kt
+RecyclerViewAdapter.kt
+```
+This secures all communication with the REST API using HTTPS. 
+ 
+<img width="1080" alt="Screen Shot 2022-05-11 at 1 31 43 AM" src="https://user-images.githubusercontent.com/72175659/167785648-8aef1463-fa80-47b3-b76b-76fbcf2b3372.png">
+ 
+ 
+ 
+ 
 
 
