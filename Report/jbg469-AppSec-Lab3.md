@@ -31,13 +31,14 @@ The proper way to do an intent is an explicit intent because there will be fewer
 
 ## 1B
 
-There is no reason to call the API after a regiter login so wee can simply comment out the lines shown below 69-71.The expected behavior of the app is 
+There is no reason to call the API after a register login so we can simply comment out the lines shown below 69-71.The expected behavior of the app is 
 to execute ProductScrollingActivity after successfully logging in. With Implicit intent, other components that satisfies the intent
 could display data in unexpected ways. After the change we now have an explicit intent
 
 <img width="1520" alt="Screen Shot 2022-05-10 at 11 09 15 PM" src="https://user-images.githubusercontent.com/72175659/167763589-4f92ecd5-4f43-4183-b477-32bb43492e97.png">
 
 ## 1C
+
 
 
 
