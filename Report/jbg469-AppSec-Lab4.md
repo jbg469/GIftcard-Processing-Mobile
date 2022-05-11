@@ -87,7 +87,12 @@ This secures all communication with the REST API using HTTPS.
 
 # 3 Oops! Was that card yours?
 
- There is a flaw in the app that allows us to spend other peoples card by simply editing the HTTP request. If we capture the traffic we can see that cards are created with a cronologically predictable id. There is no mitigation preventing someone from intercepting a request changing a value and using a giftcard that's not yours. The only other idetifier is the session token.
+The bug is caused by HTTP PUT method used in the CardInterface.kt file which allows the user to repeatedly use the same card by going back to the UseCard Activity via the back button. For the HTTP PUT method the server will always give a successful response even 
+when the card was used.
+ 
+ <img width="1337" alt="Screen Shot 2022-05-11 at 7 25 38 PM" src="https://user-images.githubusercontent.com/72175659/167963397-ab3b4f75-eef2-4cf2-b9d5-d645277c05af.png">
+ 
+ If we capture the traffic we can see that cards are created with a cronologically predictable id. There is no mitigation preventing someone from intercepting a request changing a value and using a giftcard that's not yours. The only other idetifier is the session token.
  
 <img width="1690" alt="Screen Shot 2022-05-11 at 6 38 42 PM" src="https://user-images.githubusercontent.com/72175659/167960449-0ae612e2-f3ac-4d86-8c5f-44aad84d9c2b.png">
  
@@ -101,6 +106,7 @@ This secures all communication with the REST API using HTTPS.
  With this view you can see the 200 OK status. 
  
  <img width="1233" alt="Screen Shot 2022-05-11 at 7 02 04 PM" src="https://user-images.githubusercontent.com/72175659/167961218-4068e89a-c630-4ff0-b606-8a1e57c84339.png">
- 
+
+To solve this issue, an HTTP POST method could be used to create a new update request to the server so the server will reply with an error if the same method is called repeatedly. This prevents the user from successfully using the same card again.
 
 
