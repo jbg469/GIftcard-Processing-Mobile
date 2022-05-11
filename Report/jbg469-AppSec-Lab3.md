@@ -29,16 +29,35 @@ Lines 68 to 70 is an explicit intent an action within the same application is be
 5. Between #4 and #5, which incorporates the more secure technique for implementing an Intent?
 The proper way to do an intent is an explicit intent because there will be fewer attacks vectors since you are executing within the application. The code fragment in SecondFragment.kt opens an external API. 
 
-## 1B
+## 1B 
 
 There is no reason to call the API after a register login so we can simply comment out the lines shown below 69-71.The expected behavior of the app is 
 to execute ProductScrollingActivity after successfully logging in. With Implicit intent, other components that satisfies the intent
 could display data in unexpected ways. After the change we now have an explicit intent
 
-<img width="1520" alt="Screen Shot 2022-05-10 at 11 09 15 PM" src="https://user-images.githubusercontent.com/72175659/167763589-4f92ecd5-4f43-4183-b477-32bb43492e97.png">
+<img width="1239" alt="Screen Shot 2022-05-10 at 11 51 33 PM" src="https://user-images.githubusercontent.com/72175659/167765747-28654d5a-db79-4582-9064-2676e8ba39ab.png">
+
+
 
 ## 1C
 
+<img width="1249" alt="Screen Shot 2022-05-10 at 11 49 55 PM" src="https://user-images.githubusercontent.com/72175659/167766175-966f00ed-1fb3-41e4-9cfa-12ceab55550f.png">
 
+<img width="1367" alt="Screen Shot 2022-05-10 at 11 49 24 PM" src="https://user-images.githubusercontent.com/72175659/167766170-8033a03a-bee0-401d-8376-2cc971cc2dac.png">
+
+We comment out the lines above in the header to prevent fine access to the application. Next we comment out all <intent-filter> fields in the xml as such.
+ 
+  ```
+ <!--<intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+
+            <data android:mimeType="text/giftcards_use" />
+                <data android:scheme="giftcard" />
+                <data android:host="nyuappsec.com"/>
+            </intent-filter>-->
+  ```
+# 2
 
 
