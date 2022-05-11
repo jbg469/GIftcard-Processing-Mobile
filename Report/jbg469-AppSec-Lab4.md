@@ -74,11 +74,16 @@ RecyclerViewAdapter.kt
 ```
 This secures all communication with the REST API using HTTPS. 
  
+ 
 <img width="1080" alt="Screen Shot 2022-05-11 at 1 31 43 AM" src="https://user-images.githubusercontent.com/72175659/167785648-8aef1463-fa80-47b3-b76b-76fbcf2b3372.png">
  
  
  
  <img width="470" alt="Screen Shot 2022-05-11 at 5 42 10 PM" src="https://user-images.githubusercontent.com/72175659/167952814-5ea1f1b8-dbf8-4cbb-a202-3bda593f4e52.png">
+ 
+<img width="1629" alt="Screen Shot 2022-05-11 at 6 00 00 PM" src="https://user-images.githubusercontent.com/72175659/167954747-33dfb23c-5229-4112-a65d-392dbf6e7a99.png">
+ 
+ As we can see connection is secured with https.
 
 # 3 Oops! Was that card yours?
 
