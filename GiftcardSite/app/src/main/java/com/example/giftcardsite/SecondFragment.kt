@@ -67,8 +67,8 @@ class SecondFragment : Fragment() {
                         Log.d("Register Success", "Register success. Boo.")
                         Log.d("Register Success", "Token:" + loggedInUser?.token.toString())
                         var intent = Intent(Intent.ACTION_VIEW)
-                        intent.type = "text/giftcards_browse"
-                        intent.data = Uri.parse("https://nyuappsec.com/api/index")
+                        //intent.type = "text/giftcards_browse"
+                        //intent.data = Uri.parse("https://nyuappsec.com/api/index")
                         intent.putExtra("User", loggedInUser);
                         startActivity(intent)
                     }
