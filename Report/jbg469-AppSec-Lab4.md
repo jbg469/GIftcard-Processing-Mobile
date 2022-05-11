@@ -107,5 +107,5 @@ when the card was used.
  
  <img width="1233" alt="Screen Shot 2022-05-11 at 7 02 04 PM" src="https://user-images.githubusercontent.com/72175659/167961218-4068e89a-c630-4ff0-b606-8a1e57c84339.png">
 
-To solve this issue, an HTTP POST method could be used to create a new update request to the server so the server will reply with an error if the same method is called repeatedly. This prevents repeated use from the same card. Furthermore there are further checks that could be performed to link the gift card to a user and make it so that only users with the cards credentials can use it, this way we have to know more than just than what giftcard number it is. 
+To solve this issue, an HTTP POST method could be used to create a new update request to the server so the server will reply with an error if the same method is called repeatedly. This prevents repeated use from the same card. Furthermore there are further checks that could be performed to link the gift card to a user and make it so that only users with the cards credentials can use it, this way we have to know more than just what giftcard number it is. 
 
