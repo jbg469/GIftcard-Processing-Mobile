@@ -1,24 +1,30 @@
 # Part 1
+
+We follow the instructions to succesfully launch our emulator in the host OS. No VM's were used best effort is made to include time. 
+
+<img width="1503" alt="Screen Shot 2022-05-10 at 1 46 58 AM" src="https://user-images.githubusercontent.com/72175659/167745674-232b7008-44a4-4156-8940-c06585042190.png">
+
 1. What are the two types of Intents?
 
-An activity is an application that contains a specific code; a user interface. There needs to be a component to communicate between the activities, and this is where intent comes in to be a messaging component. The two types of intents are explicit intent and implicit intent. Explicit intent allows you to communicate between two activities of the same application or if you want to jump from one activity to another. Implicit intent allows communication between two activities of different applications. Intents are used to start an activity/service, such as opening an email and calling. You can pass data in the same application or different applications. Intent is used for broadcasting messages like communicating to other applications that the battery is low.
-
+ Intents start an activity, like opening an text message or opening a link. The two types of intents are implicit and explicit intent. Implicit intents allow for interaction between two activities from different applications. When you want to perform a certain action you can't be sure of wether the implicit intent will perform as expected. Explicit intents aid interaction of two activities from the same application or facilitate switchtching from one running one activity to another. Explicit intents are more secure because you know what is going on at all times.
 
 2. Which of the two types of Intents are more secure?
 
-Explicit intent is more secure because implicit intent leads to spoofing and interception on Android. they are frequently overused or used inappropriately, with negative consequences for security. Explicit intents are a much better choice for this situation, because they are simpler and they leave no doubt about the recipient of an intent.
-
-
-
+Implicit intents have been shown to have security vulnerabilities like spoofing . Explicit intents leave no doubt about the recipients or the end results of the acitivity. Hence Explicit intents are more secure. Implicit intents are like calling for volunteers.   
 
 3. What type of Intent is shown on lines 69 to 73 of SecondFragment.kt?
 
-The type of intent is implicit because there are different activities in line 71 for the attached link. The API shows other things going on with items and prices.
+<img width="1520" alt="Screen Shot 2022-05-10 at 11 09 15 PM" src="https://user-images.githubusercontent.com/72175659/167761242-24f79cfb-6ccf-4802-af4b-f1434dcf4847.png">
+
+It's an implicit intent because the link at line 71 is misleading clicking it you would think its a security page for nyu appsec but the API just shows details of different items for sale in giftcardsite.
+
 
 4. What type of Intent is shown on lines 68 to 70 of ThirdFragment.kt?
 
-Lines 68 to 70 show an explicit intent due to it being in the same application. The application displays an extra user being added and starting the activity without switching to another activity.
+Lines 68 to 70 is an explicit intent an action within the same application is being triggered. The application displays switching an activity after a user has been logged in. We can see that the class thats being called limiting the recipient of the intent. 
+
+<img width="1484" alt="Screen Shot 2022-05-10 at 11 04 04 PM" src="https://user-images.githubusercontent.com/72175659/167760674-4dcae7e8-abd3-44c9-bff2-3766e097c993.png">
+
 
 5. Which of these two Intents is the proper way to do an Intent?
-
-Secondfragment.kt needs to be modified by only being in the same application. The proper way to do an intent is explicit because there will be fewer attacks like spoofing and interception since you are solely on the same application. Similar to what we do on postman, we went on different URL's by using a token. However, that token was not suitable since it was a permanent token. All tokens should be changed so that there won't be a security issue.
+The proper way to do an intent is an explicit intent because there will be fewer attacks vectors since you are executing within the application. The code fragment in SecondFragment.kt opens an external API. 
