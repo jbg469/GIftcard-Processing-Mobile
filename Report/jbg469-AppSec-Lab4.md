@@ -126,4 +126,10 @@ An HTTP POST method could be used to create a update request to the server so th
  
 <img width="1535" alt="Screen Shot 2022-05-11 at 10 27 47 PM" src="https://user-images.githubusercontent.com/72175659/167980674-4c8c637c-ea2f-4670-8c7c-0c06ac66f034.png">
 
+ ## 4b 
+ 
+ Capturing web traffic we can see that the app collects data and sends to a server. This is unnecessary and not a good practice. 
+ 
+ <img width="1481" alt="Screen Shot 2022-05-12 at 12 14 35 AM" src="https://user-images.githubusercontent.com/72175659/167990982-0500d89c-a559-4c6e-92ff-e592dd30055d.png">
+
  
