@@ -110,3 +110,20 @@ The bug is  in the HTTP PUT method used in the CardInterface.kt file which allow
  <img width="1233" alt="Screen Shot 2022-05-11 at 7 02 04 PM" src="https://user-images.githubusercontent.com/72175659/167961218-4068e89a-c630-4ff0-b606-8a1e57c84339.png">
 
 An HTTP POST method could be used to create a update request to the server so the server will reply with an error if the same method is called more than once, this prevents repeated use from the same request. Furthermore there are further checks that could be performed to link the gift card to a user and make it so that only users with the cards credentials can use it. You could link the login credentials to the card so that the user has to input their user name and password to use the card. This way we have to know more than just what giftcard number it is. 
+ 
+# 4 Please Hold... Your Privacy Is Very Important To Us!
+## 4a 
+ For this task we look inside the manifest file and comment out permissions one by one seeing they dont crash the app on build.
+ <img width="1512" alt="Screen Shot 2022-05-11 at 9 13 51 PM" src="https://user-images.githubusercontent.com/72175659/167980135-c969d94e-af41-4dae-9827-f9b3fcf67fdd.png">
+
+<img width="1513" alt="Screen Shot 2022-05-11 at 9 15 18 PM" src="https://user-images.githubusercontent.com/72175659/167980145-5129a2df-a90b-472f-a49b-18f80ce284a7.png">
+<img width="1520" alt="Screen Shot 2022-05-11 at 9 17 50 PM" src="https://user-images.githubusercontent.com/72175659/167980147-41a79797-8e4c-48e9-ae90-ba971a9ce850.png">
+
+ ACCESS_FINE_LOCATION Causes promblems on removal but it's not necessary so we CTRL+SHIFT+F "permissions" and "FINE_LOCATION" to remove any reference to permissions in the app code.
+ 
+<img width="1528" alt="Screen Shot 2022-05-11 at 10 27 29 PM" src="https://user-images.githubusercontent.com/72175659/167980659-06f58e2b-5c6e-47e6-bd80-2100537c6a0c.png">
+ 
+ 
+<img width="1535" alt="Screen Shot 2022-05-11 at 10 27 47 PM" src="https://user-images.githubusercontent.com/72175659/167980674-4c8c637c-ea2f-4670-8c7c-0c06ac66f034.png">
+
+ 
