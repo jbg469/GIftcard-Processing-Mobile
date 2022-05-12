@@ -84,6 +84,9 @@ This secures all communication with the REST API using HTTPS.
 <img width="1629" alt="Screen Shot 2022-05-11 at 6 00 00 PM" src="https://user-images.githubusercontent.com/72175659/167954747-33dfb23c-5229-4112-a65d-392dbf6e7a99.png">
  
  As we can see connection is secured with https.
+ 
+ <img width="1629" alt="Screen Shot 2022-05-11 at 6 00 00 PM" src="https://user-images.githubusercontent.com/72175659/167973739-8f86801b-dc58-41bd-ad94-7fe2478b075a.png">
+
 
 # 3 Oops! Was that card yours?
 
