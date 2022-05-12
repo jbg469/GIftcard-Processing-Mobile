@@ -42,7 +42,7 @@ could display data in unexpected ways. After the change we now have an explicit 
 ## 1C
 
 
-We comment out all <intent-filter> fields in the xml as such with <!-- -->. The app works as intended 
+We comment out all 'intent-filter' fields in the xml as such with <!-- -->. The app works as intended 
  
   ```
  <!--<intent-filter>
