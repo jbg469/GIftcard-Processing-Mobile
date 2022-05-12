@@ -35,17 +35,14 @@ There is no reason to call the API after a register login so we can simply comme
 to execute ProductScrollingActivity after successfully logging in. With Implicit intent, other components that satisfies the intent
 could display data in unexpected ways. After the change we now have an explicit intent
 
-<img width="1239" alt="Screen Shot 2022-05-10 at 11 51 33 PM" src="https://user-images.githubusercontent.com/72175659/167765747-28654d5a-db79-4582-9064-2676e8ba39ab.png">
 
+<img width="1471" alt="Screen Shot 2022-05-11 at 2 13 30 AM" src="https://user-images.githubusercontent.com/72175659/167780994-4dcbe6fb-94b4-43c6-878b-a7b9042d8386.png">
 
 
 ## 1C
 
-<img width="1249" alt="Screen Shot 2022-05-10 at 11 49 55 PM" src="https://user-images.githubusercontent.com/72175659/167766175-966f00ed-1fb3-41e4-9cfa-12ceab55550f.png">
 
-<img width="1367" alt="Screen Shot 2022-05-10 at 11 49 24 PM" src="https://user-images.githubusercontent.com/72175659/167766170-8033a03a-bee0-401d-8376-2cc971cc2dac.png">
-
-We comment out the lines above in the header to prevent fine access to the application. Next we comment out all <intent-filter> fields in the xml as such.
+We comment out all <intent-filter> fields in the xml as such with <!-- -->. The app works as intended 
  
   ```
  <!--<intent-filter>
@@ -58,15 +55,58 @@ We comment out the lines above in the header to prevent fine access to the appli
                 <data android:host="nyuappsec.com"/>
             </intent-filter>-->
   ```
+ <img width="1474" alt="Screen Shot 2022-05-11 at 2 44 10 AM" src="https://user-images.githubusercontent.com/72175659/167785530-0d66d610-1f3d-4e9d-90a4-a9b3a72fa526.png">
+
+ 
 # 2 Stoppin' the Eavesdroppin'
  
-## SecondFragment.kt
-## ThirdFragment.kt
-## CardScrollingActivity.kt
-## ProductScrollingActivity.kt
-## UseCard.kt
-## GetCard.kt
-## CardRecyclerViewAdapter.kt
-## RecyclerViewAdapter.kt
+We do a REPLACE ALL on http://nyuappsec and replace it with https://nyuappsec in the following files
+ 
+```
+SecondFragment.kt
+ThirdFragment.kt
+CardScrollingActivity.kt
+ProductScrollingActivity.kt
+UseCard.kt
+GetCard.kt
+CardRecyclerViewAdapter.kt
+RecyclerViewAdapter.kt
+```
+This secures all communication with the REST API using HTTPS. 
+ 
+ 
+<img width="1080" alt="Screen Shot 2022-05-11 at 1 31 43 AM" src="https://user-images.githubusercontent.com/72175659/167785648-8aef1463-fa80-47b3-b76b-76fbcf2b3372.png">
+ 
+ 
+ 
+ <img width="470" alt="Screen Shot 2022-05-11 at 5 42 10 PM" src="https://user-images.githubusercontent.com/72175659/167952814-5ea1f1b8-dbf8-4cbb-a202-3bda593f4e52.png">
+ 
+<img width="1629" alt="Screen Shot 2022-05-11 at 6 00 00 PM" src="https://user-images.githubusercontent.com/72175659/167954747-33dfb23c-5229-4112-a65d-392dbf6e7a99.png">
+ 
+ As we can see connection is secured with https.
+ 
+ <img width="1629" alt="Screen Shot 2022-05-11 at 6 00 00 PM" src="https://user-images.githubusercontent.com/72175659/167973739-8f86801b-dc58-41bd-ad94-7fe2478b075a.png">
 
 
+# 3 Oops! Was that card yours?
+
+The bug is  in the HTTP PUT method used in the CardInterface.kt file which allows the user to log in with a token and have access to someone else's card. HTTP PUT will always give a successful response even when the card was already used.
+ 
+ <img width="1337" alt="Screen Shot 2022-05-11 at 7 25 38 PM" src="https://user-images.githubusercontent.com/72175659/167963397-ab3b4f75-eef2-4cf2-b9d5-d645277c05af.png">
+ 
+ If we capture the traffic we can see that cards are created with a cronologically predictable id. There is no mitigation preventing someone from intercepting a request changing a value and using a giftcard that's not yours. The only other idetifier is the session token.
+ 
+<img width="1690" alt="Screen Shot 2022-05-11 at 6 38 42 PM" src="https://user-images.githubusercontent.com/72175659/167960449-0ae612e2-f3ac-4d86-8c5f-44aad84d9c2b.png">
+ 
+ We are able to intercept traffic and use giftcard one with an ok 200 repsonse.
+ <img width="1393" alt="Screen Shot 2022-05-11 at 6 53 44 PM" src="https://user-images.githubusercontent.com/72175659/167960792-6f24cc08-4e53-4490-bdd1-a897a7d84c87.png">
+
+ We are able to do the same with card number 800
+ 
+<img width="1533" alt="Screen Shot 2022-05-11 at 6 53 21 PM" src="https://user-images.githubusercontent.com/72175659/167960931-766df097-9613-44a4-880c-0b393190e004.png">
+ 
+ With this view you can see the 200 OK status. 
+ 
+ <img width="1233" alt="Screen Shot 2022-05-11 at 7 02 04 PM" src="https://user-images.githubusercontent.com/72175659/167961218-4068e89a-c630-4ff0-b606-8a1e57c84339.png">
+
+An HTTP POST method could be used to create a update request to the server so the server will reply with an error if the same method is called more than once, this prevents repeated use from the same request. Furthermore there are further checks that could be performed to link the gift card to a user and make it so that only users with the cards credentials can use it. You could link the login credentials to the card so that the user has to input their user name and password to use the card. This way we have to know more than just what giftcard number it is. 
