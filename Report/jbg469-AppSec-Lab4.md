@@ -154,6 +154,12 @@ Upon changing the file and rebuilding the app, we can login successfully and use
 <img width="1481" alt="Screen Shot 2022-05-12 at 12 14 35 AM" src="https://user-images.githubusercontent.com/72175659/168217636-3b0d2346-7ccd-4087-a894-79e9e68ba2ce.png">
 
 We now don't see any extra api calls we now
+It was important to comment out the //@POST("/api/metrics") in UserInfo.kt as that stops the metric api from sending a request from the device. If you do not remove this there is a lag and you won't be able to use the card.
+<img width="1602" alt="Screen Shot 2022-05-13 at 2 03 18 AM" src="https://user-images.githubusercontent.com/72175659/168221069-bf02b37d-4446-46e1-bf31-d0636bdf4590.png">
 
 <img width="1214" alt="Screen Shot 2022-05-13 at 1 34 50 AM" src="https://user-images.githubusercontent.com/72175659/168217778-ebb23d3d-b466-4ded-9f07-4a472118a14b.png">
 
+## 4c
+
+In the same 
+ProductScrollingActivity.kt and CardScrollingActivity we comment out the last remaining references to anything "sensor" related that we didn't get for part 4c. Getting rid of all sensor functions in these two files is enough to remove all unnecessary sensor interactions from the mobile application, leaving only those necessary for the application to function and serve its purpose. 
