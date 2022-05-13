@@ -162,7 +162,7 @@ It was important to comment out the //@POST("/api/metrics") in UserInfo.kt as th
 ## 4c
 
 In the same 
-ProductScrollingActivity.kt and CardScrollingActivity we comment out the last remaining references to anything "sensor" related that we didn't get for part 4c. Getting rid of all sensor functions in these two files is enough to remove all unnecessary sensor interactions from the mobile application, leaving only those necessary for the application to function and serve its purpose.
+ProductScrollingActivity.kt and CardScrollingActivity we comment out the last remaining references to anything "sensor" related that we didn't get for part 4b. Getting rid of all sensor functions in these two files is enough to remove all unnecessary sensor interactions from the mobile application, leaving only those necessary for the application to function and serve its purpose.
 
 
 <img width="1618" alt="Screen Shot 2022-05-13 at 1 55 52 AM" src="https://user-images.githubusercontent.com/72175659/168221558-4c0134a3-8f6d-430f-81ab-800adc286187.png">
