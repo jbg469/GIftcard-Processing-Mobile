@@ -1,39 +1,39 @@
 package com.example.giftcardsite
 
-import android.Manifest
+//import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.Sensor
+//import android.hardware.Sensor
 import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
+//import android.hardware.SensorEventListener
+//import android.hardware.SensorManager
+//import android.location.Location
+//import android.location.LocationListener
+//import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.widget.Button
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+//import androidx.core.app.ActivityCompat
+//import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giftcardsite.api.model.*
 import com.example.giftcardsite.api.service.ProductInterface
-import com.example.giftcardsite.api.service.UserInfo
+//import com.example.giftcardsite.api.service.UserInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+class ProductScrollingActivity : AppCompatActivity(){
     var loggedInUser: User? = null
-    private lateinit var sensorManager: SensorManager
-    private var mAccel : Sensor? = null
+   // private lateinit var sensorManager: SensorManager
+    //private var mAccel : Sensor? = null
     private var lastEvent : String? = null
 
 
@@ -45,8 +45,8 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, Locat
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
         }*/
         //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        mAccel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        //sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        //mAccel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         setContentView(R.layout.activity_scrolling)
         setSupportActionBar(findViewById(R.id.toolbar))
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).title = title
@@ -96,7 +96,7 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, Locat
         return true
     }
 
-    override fun onLocationChanged(location: Location) {
+   /* override fun onLocationChanged(location: Location) {
         var userInfoContainer = UserInfoContainer(location, null, loggedInUser?.token)
         var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://nyuappsec.com").addConverterFactory(
             GsonConverterFactory.create())
@@ -166,6 +166,6 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, Locat
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(this)
-    }
+    } */
 
 }
