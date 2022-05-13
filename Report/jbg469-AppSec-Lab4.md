@@ -131,5 +131,14 @@ An HTTP POST method could be used to create a update request to the server so th
  Capturing web traffic we can see that the app collects data and sends to a server. This is unnecessary and not a good practice. 
  
  <img width="1481" alt="Screen Shot 2022-05-12 at 12 14 35 AM" src="https://user-images.githubusercontent.com/72175659/167990982-0500d89c-a559-4c6e-92ff-e592dd30055d.png">
+It seems like "metric" is related to location data. We will try to remove all references to both from the app. We already removed the permissions that were triggering the location data prompt at login. Now we will remove all traces of location use. 
+<img width="1405" alt="image" src="https://user-images.githubusercontent.com/72175659/168208327-917adf2b-bc66-4491-a88e-f8fbd58158fb.png">
+
+In CardScrollingActivity we remove all references and function related to the places that output something with metric in the string. We see that these functions once removed were causing problems and unresolved references. The keywords sensor and location are blended amongst the stuff we seemmingly don't want / need. Once we comment out everything the app logs us in and we can use cards. We comment out some imports to some suspicious looking packages dealing with sensory data and references to the API. 
+
+<img width="1712" alt="Screen Shot 2022-05-13 at 12 28 56 AM" src="https://user-images.githubusercontent.com/72175659/168211403-d05a2cfb-c297-4107-aeaf-4de69449cd9e.png">
+
+In 
+
 
  
