@@ -134,11 +134,26 @@ An HTTP POST method could be used to create a update request to the server so th
 It seems like "metric" is related to location data. We will try to remove all references to both from the app. We already removed the permissions that were triggering the location data prompt at login. Now we will remove all traces of location use. 
 <img width="1405" alt="image" src="https://user-images.githubusercontent.com/72175659/168208327-917adf2b-bc66-4491-a88e-f8fbd58158fb.png">
 
-In CardScrollingActivity we remove all references and function related to the places that output something with metric in the string. We see that these functions once removed were causing problems and unresolved references. The keywords sensor and location are blended amongst the stuff we seemmingly don't want / need. Once we comment out everything the app logs us in and we can use cards. We comment out some imports to some suspicious looking packages dealing with sensory data and references to the API. 
+In CardScrollingActivity import com.example.giftcardsite.api.service.UserInfo- this library sounds suspect so we remove it.
+ we remove all references and function related to the places that output something with metric in the string. We see that these functions once removed were causing problems and unresolved references. The keywords sensor and location are blended amongst the stuff we seemmingly don't want / need. Once we comment out everything the app logs us in and we can use cards. We comment out some imports to some suspicious looking packages dealing with sensory data and references to the API. 
+
 
 <img width="1712" alt="Screen Shot 2022-05-13 at 12 28 56 AM" src="https://user-images.githubusercontent.com/72175659/168211403-d05a2cfb-c297-4107-aeaf-4de69449cd9e.png">
 
-In 
+In ProductScrollingActivity.kt is very similar to CardScrollingActivity we remove the same imports. We  remove references and functions associated to "metric", sensor, and location. Lines 99-169 are commented out as all this code seems to just handle metric data and sensory information we remove the same imports we did in CardScrolling. 
 
 
+<img width="1673" alt="Screen Shot 2022-05-13 at 12 54 57 AM" src="https://user-images.githubusercontent.com/72175659/168213784-7a494569-bc29-404e-903b-537222b2eee0.png">
+
+Upon changing the file and rebuilding the app, we can login successfully and use the app. 
+
+
+ <img width="1194" alt="Screen Shot 2022-05-13 at 1 31 29 AM" src="https://user-images.githubusercontent.com/72175659/168217424-6a39e523-65a7-43ba-9b07-3cd69d0f0191.png">
  
+ We see that there are still references to location and metric left in the source code, but the files we edited deal with what is collected and exported by the device so it's enough to stop the device from collecting data and sending it. We verify by the fact that we no longer see this mess when capturing traffic.  
+<img width="1481" alt="Screen Shot 2022-05-12 at 12 14 35 AM" src="https://user-images.githubusercontent.com/72175659/168217636-3b0d2346-7ccd-4087-a894-79e9e68ba2ce.png">
+
+We now don't see any extra api calls we now
+
+<img width="1214" alt="Screen Shot 2022-05-13 at 1 34 50 AM" src="https://user-images.githubusercontent.com/72175659/168217778-ebb23d3d-b466-4ded-9f07-4a472118a14b.png">
+
